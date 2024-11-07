@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Authentication</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<body>
+    <header class="mb-5">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="#">Psychology & Self-Development</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="index.html">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="articles.html">Articles</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="about.html">About Us</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="contact.html">Contact</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="auth.html">Login / Register</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <main class="container mt-5">
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <button id="toggleButton" class="btn btn-secondary mb-3" onclick="toggleForm()">Switch to Register</button>
+
+                <div id="loginFormContainer">
+                    <h2>Login</h2>
+                    <form id="loginForm">
+                        <div class="mb-3">
+                            <label for="email" class="form-label">Email address</label>
+                            <input type="email" class="form-control" id="email" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="password" class="form-label">Password</label>
+                            <input type="password" class="form-control" id="password" required>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Login</button>
+                    </form>
+                </div>
+
+                <div id="registerFormContainer" style="display: none;">
+                    <h2>Register</h2>
+                    <form id="registerForm">
+                        <div class="mb-3">
+                            <label for="new-email" class="form-label">Email address</label>
+                            <input type="email" class="form-control" id="new-email" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="new-password" class="form-label">Password</label>
+                            <input type="password" class="form-control" id="new-password" required>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Register</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        function toggleForm() {
+            const loginFormContainer = document.getElementById("loginFormContainer");
+            const registerFormContainer = document.getElementById("registerFormContainer");
+            const toggleButton = document.getElementById("toggleButton");
+
+            if (loginFormContainer.style.display === "none") {
+                loginFormContainer.style.display = "block";
+                registerFormContainer.style.display = "none";
+                toggleButton.innerText = "Switch to Register";
+            } else {
+                loginFormContainer.style.display = "none";
+                registerFormContainer.style.display = "block";
+                toggleButton.innerText = "Switch to Login";
+            }
+        }
+
+        async function registerUser(email, password, isAdmin = false) {
+            const newUser = {
+                email,
+                password,
+                isAdmin
+            };
+            try {
+                const response = await fetch("http://localhost:3000/posts", {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+                    body: JSON.stringify(newUser),
+                });
+                if (response.ok) {
+                    alert("Registration successful!");
+                } else {
+                    const errorText = await response.text();
+                    console.error("Registration failed:", errorText);
+                    alert("Error during registration. " + errorText);
+                }
+            } catch (error) {
+                console.error("Network error:", error);
+                alert("Error during registration. Network issue.");
+            }
+        }
+
+
+        async function loginUser(email, password) {
+            const response = await fetch("http://localhost:3000/posts");
+            const users = await response.json();
+            const user = users.find(u => u.email === email && u.password === password);
+            if (user) {
+                alert(`Welcome ${user.isAdmin ? "Admin" : "User"}!`);
+                window.location.href = user.isAdmin ? 'admin.html' : 'index.html';
+            } else {
+                alert("Invalid credentials.");
+            }
+        }
+
+        document.getElementById("registerForm").onsubmit = e => {
+            e.preventDefault();
+            const email = document.getElementById("new-email").value;
+            const password = document.getElementById("new-password").value;
+            registerUser(email, password);
+        };
+
+        document.getElementById("loginForm").onsubmit = e => {
+            e.preventDefault();
+            const email = document.getElementById("email").value;
+            const password = document.getElementById("password").value;
+            loginUser(email, password);
+        };
+    </script>
+</body>
+
+</html>

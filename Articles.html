@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Psychology & Self-Development - Articles</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        .book-card {
+            position: relative;
+            cursor: pointer;
+        }
+        
+        .book-image {
+            position: absolute;
+            top: -220px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 150px;
+            height: auto;
+            display: none;
+            border: 2px solid #ddd;
+            background: white;
+            padding: 5px;
+            z-index: 10;
+        }
+        
+        .book-card:hover .book-image {
+            display: block;
+        }
+    </style>
+</head>
+
+<body>
+    <header class="mb-5">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="#">Psychology & Self-Development</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                        <li class="nav-item"><a class="nav-link active" href="articles.html">Articles</a></li>
+                        <li class="nav-item"><a class="nav-link" href="about.html">About Us</a></li>
+                        <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main class="container">
+        <section id="intro" class="text-center mb-5">
+            <h2>Videos on Psychology & Self-Development</h2>
+            <p class="fade-in-text">Discover videos that can transform the way you think about personal growth and emotional intelligence.</p>
+        </section>
+        <section id="latest-articles" class="row">
+            <div class="col-lg-4 col-md-6 mb-4">
+                <div class="card h-100">
+                    <div class="card-body">
+                        <h3 class="card-title">The Myth of Self Improvement</h3>
+                        <div class="ratio ratio-16x9 mb-3">
+                            <video controls>
+                                <source src="vid/theMythOfSelfImprovement.mp4" type="video/mp4">
+                            </video>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6 mb-4">
+                <div class="card h-100">
+                    <div class="card-body">
+                        <h3 class="card-title">Understanding The Self: George Herbert Mead</h3>
+                        <div class="ratio ratio-16x9 mb-3">
+                            <video controls>
+                                <source src="vid/Understanding.mp4" type="video/mp4">
+                            </video>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6 mb-4">
+                <div class="card h-100">
+                    <div class="card-body">
+                        <h3 class="card-title">8 Stages of Development by Erik Erikson</h3>
+                        <div class="ratio ratio-16x9 mb-3">
+                            <video controls>
+                                <source src="vid/stages.mp4" type="video/mp4">
+                            </video>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="book-section" class="mt-5">
+            <h2 class="text-center mb-5">Books for Purchase</h2>
+            <div class="row">
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="book-card card h-100" onmouseover="showImage(this, 'im/7high.jpg')" onmouseout="hideImage(this)">
+                        <div class="card-body">
+                            <h3 class="card-title">The 7 Habits of Highly Effective People</h3>
+                            <p>$15.99</p>
+                            <button class="btn btn-primary" onclick="addToCart(0)">Add to Cart</button>
+                        </div>
+                        <img src="" alt="Book Image" class="book-image">
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="book-card card h-100" onmouseover="showImage(this, 'im/71z-XQzRclL._AC_UF1000,1000_QL80_.jpg')" onmouseout="hideImage(this)">
+                        <div class="card-body">
+                            <h3 class="card-title">Grit: The Power of Passion and Perseverance</h3>
+                            <p>$14.99</p>
+                            <button class="btn btn-primary" onclick="addToCart(1)">Add to Cart</button>
+                        </div>
+                        <img src="" alt="Book Image" class="book-image">
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="book-card card h-100" onmouseover="showImage(this, 'im/91fmmjCP6FL._UF1000,1000_QL80_.jpg')" onmouseout="hideImage(this)">
+                        <div class="card-body">
+                            <h3 class="card-title">Emotional Intelligence</h3>
+                            <p>$13.99</p>
+                            <button class="btn btn-primary" onclick="addToCart(2)">Add to Cart</button>
+                        </div>
+                        <img src="" alt="Book Image" class="book-image">
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="book-card card h-100" onmouseover="showImage(this, 'im/power-of-now.jpg')" onmouseout="hideImage(this)">
+                        <div class="card-body">
+                            <h3 class="card-title">The Power of Now</h3>
+                            <p>$12.99</p>
+                            <button class="btn btn-primary" onclick="addToCart(3)">Add to Cart</button>
+                        </div>
+                        <img src="" alt="Book Image" class="book-image">
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="book-card card h-100" onmouseover="showImage(this, 'im/mindset.jpg')" onmouseout="hideImage(this)">
+                        <div class="card-body">
+                            <h3 class="card-title">Mindset: The New Psychology of Success</h3>
+                            <p>$16.99</p>
+                            <button class="btn btn-primary" onclick="addToCart(4)">Add to Cart</button>
+                        </div>
+                        <img src="" alt="Book Image" class="book-image">
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="book-card card h-100" onmouseover="showImage(this, 'im/2419631_1000.jpg')" onmouseout="hideImage(this)">
+                        <div class="card-body">
+                            <h3 class="card-title">Atomic Habits</h3>
+                            <p>$17.99</p>
+                            <button class="btn btn-primary" onclick="addToCart(5)">Add to Cart</button>
+                        </div>
+                        <img src="" alt="Book Image" class="book-image">
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="book-card card h-100" onmouseover="showImage(this, 'im/daring-greatly.jpg')" onmouseout="hideImage(this)">
+                        <div class="card-body">
+                            <h3 class="card-title">Daring Greatly</h3>
+                            <p>$18.99</p>
+                            <button class="btn btn-primary" onclick="addToCart(6)">Add to Cart</button>
+                        </div>
+                        <img src="" alt="Book Image" class="book-image">
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="book-card card h-100" onmouseover="showImage(this, 'im/StartwithWHY-680x1024.jpeg')" onmouseout="hideImage(this)">
+                        <div class="card-body">
+                            <h3 class="card-title">Start with Why</h3>
+                            <p>$19.99</p>
+                            <button class="btn btn-primary" onclick="addToCart(7)">Add to Cart</button>
+                        </div>
+                        <img src="" alt="Book Image" class="book-image">
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="book-card card h-100" onmouseover="showImage(this, 'im/71wm29Etl4L.jpg')" onmouseout="hideImage(this)">
+                        <div class="card-body">
+                            <h3 class="card-title">The Power of Habit</h3>
+                            <p>$13.50</p>
+                            <button class="btn btn-primary" onclick="addToCart(8)">Add to Cart</button>
+                        </div>
+                        <img src="" alt="Book Image" class="book-image">
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <div class="modal fade" id="cartModal" tabindex="-1" aria-labelledby="cartModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="cartModalLabel">Shopping Cart</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <ul id="cartItems" class="list-group"></ul>
+                    <p class="mt-3"><strong>Total Price: $<span id="totalPrice">0.00</span></strong></p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary" onclick="showCheckoutModal()">Checkout</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="checkoutModal" tabindex="-1" aria-labelledby="checkoutModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="checkoutModalLabel">Checkout</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <h6>Select Payment Method</h6>
+                    <button class="btn btn-outline-primary w-100 mb-3" onclick="showQRCode()">Pay with QR Code</button>
+                    <button class="btn btn-outline-secondary w-100" onclick="showCardForm()">Pay with Card</button>
+
+                    <div id="qrCodeSection" class="mt-3" style="display: none;">
+                        <img src="im/7c0f9283-d1a5-4df8-a453-392d71758d33.jpeg" alt="QR Code" class="w-100" />
+                        <p class="text-center mt-2">Scan the QR code to complete the purchase</p>
+                    </div>
+
+                    <div id="cardForm" class="mt-3" style="display: none;">
+                        <input type="text" class="form-control mb-2" placeholder="Card Number" />
+                        <input type="text" class="form-control mb-2" placeholder="Expiration Date (MM/YY)" />
+                        <input type="text" class="form-control mb-2" placeholder="CVV" />
+                        <button class="btn btn-success w-100" onclick="showThankYouMessage()">Buy</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const books = [{
+            title: "The 7 Habits of Highly Effective People",
+            price: 15.99
+        }, {
+            title: "Grit: The Power of Passion and Perseverance",
+            price: 14.99
+        }, {
+            title: "Emotional Intelligence",
+            price: 13.99
+        }, {
+            title: "The Power of Now",
+            price: 12.99
+        }, {
+            title: "Mindset: The New Psychology of Success",
+            price: 16.99
+        }, {
+            title: "Atomic Habits",
+            price: 17.99
+        }, {
+            title: "Daring Greatly",
+            price: 18.99
+        }, {
+            title: "Start with Why",
+            price: 19.99
+        }, {
+            title: "The Power of Habit",
+            price: 13.50
+        }];
+        let cartItems = [];
+
+        function addToCart(bookIndex) {
+            const book = books[bookIndex];
+            const existingItem = cartItems.find(item => item.title === book.title);
+
+            if (existingItem) {
+                existingItem.quantity += 1;
+                existingItem.totalPrice += book.price;
+            } else {
+                cartItems.push({
+                    title: book.title,
+                    price: book.price,
+                    quantity: 1,
+                    totalPrice: book.price
+                });
+            }
+
+            updateCartDisplay();
+        }
+
+        function updateCartDisplay() {
+            const cartList = document.getElementById('cartItems');
+            cartList.innerHTML = cartItems.map(item => `
+                <li class="list-group-item">${item.title} - $${item.price.toFixed(2)} x ${item.quantity} = $${item.totalPrice.toFixed(2)}</li>
+            `).join('');
+
+            const totalPrice = cartItems.reduce((sum, item) => sum + item.totalPrice, 0);
+            document.getElementById('totalPrice').textContent = totalPrice.toFixed(2);
+
+            const cartModal = new bootstrap.Modal(document.getElementById('cartModal'));
+            cartModal.show();
+        }
+
+        function showCheckoutModal() {
+            const checkoutModal = new bootstrap.Modal(document.getElementById('checkoutModal'));
+            checkoutModal.show();
+        }
+
+        function showQRCode() {
+            document.getElementById('qrCodeSection').style.display = 'block';
+            document.getElementById('cardForm').style.display = 'none';
+        }
+
+        function showCardForm() {
+            document.getElementById('qrCodeSection').style.display = 'none';
+            document.getElementById('cardForm').style.display = 'block';
+        }
+
+        function showThankYouMessage() {
+            alert('Спасибо за покупку!');
+            const checkoutModal = bootstrap.Modal.getInstance(document.getElementById('checkoutModal'));
+            if (checkoutModal) {
+                checkoutModal.hide();
+            }
+        }
+
+        function showImage(card, imageUrl) {
+            const image = card.querySelector('.book-image');
+            image.src = imageUrl;
+            image.style.display = 'block';
+        }
+
+        function hideImage(card) {
+            const image = card.querySelector('.book-image');
+            image.style.display = 'none';
+        }
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

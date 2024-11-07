@@ -1,0 +1,10 @@
+{
+    "posts": [{
+        "id": "eb14",
+        "email": "admin@gmail.com",
+        "password": "admin",
+        "isAdmin": true
+    }],
+    "comments": [],
+    "profile": {}
+}
